@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
     @question.title = params[:question][:title]
     @question.body = params[:question][:body]
-    @question.resolved = params[:question][:body]
+    @question.resolved = params[:question][:resolved]
 
     if @question.save
       flash[:notice] = "Question was saved."
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.new
+    @question = Question.find(params[:id])
     @question.title = params[:question][:title]
     @question.body = params[:question][:body]
     @question.resolved = params[:question][:body]
