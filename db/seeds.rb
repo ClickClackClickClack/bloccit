@@ -41,11 +41,18 @@ topics = Topic.all
    password: 'helloworld',
    role:     'admin'
  )
- 
+
  member = User.create!(
    name:     'Member User',
    email:    'member@example.com',
    password: 'helloworld'
+ )
+
+ moderator = User.create!(
+   name:     'Moderator',
+   email:    'mod@example.com',
+   password: 'helloworld',
+   role:     'moderator'
  )
 
  puts "Seed finished"
