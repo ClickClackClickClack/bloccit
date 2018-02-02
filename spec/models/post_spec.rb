@@ -72,5 +72,11 @@ RSpec.describe Post, type: :model do
          expect(post.rank).to eq (old_rank - 1)
        end
      end
+
+     describe "#create_vote" do
+       it "associates the first vote with the user that created the post" do
+         expect(post.votes.first.user).to eq(post.user)
+       end
+     end
    end
 end
