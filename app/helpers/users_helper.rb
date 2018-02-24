@@ -8,4 +8,8 @@ module UsersHelper
      user.comments.size >= 1
   end
 
+  def user_has_favorites?(user)
+     user.favorites.size >= 1
+  end
+
 end

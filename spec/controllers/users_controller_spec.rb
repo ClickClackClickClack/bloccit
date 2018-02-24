@@ -65,7 +65,7 @@ RSpec.describe UsersController, type: :controller do
      before do
        post :create, params: { user: new_user_attributes }
      end
- 
+
      it "returns http success" do
        get :show, params: { id: factory_user.id }
        expect(response).to have_http_status(:success)

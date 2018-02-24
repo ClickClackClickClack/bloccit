@@ -31,6 +31,15 @@ class UsersController < ApplicationController
    def show
       @user = User.find(params[:id])
       @posts = @user.posts.visible_to(current_user)
+      @fave_posts = @user.favorites.map {|favorite| favorite.post }
+      @fave_users = @user.favorites.map {|favorite| favorite.post.user }
+      @fave_gravs = @fave_users.map {|user| grav_url(user, 48)}
+   end
+
+   private
+   def grav_url(user, size)
+     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
    end
 
 end
